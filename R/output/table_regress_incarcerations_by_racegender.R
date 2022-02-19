@@ -2,6 +2,7 @@
 
 model <- 
   read_csv(here("data/NLSY97_clean.csv")) %>%
+  filter(total_time_incarcerated>0)%>%
   lm(total_time_incarcerated ~ race + gender, data = .)
 
 # Here we supply our own standard errors b/c we want to 
