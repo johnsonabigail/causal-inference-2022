@@ -5,7 +5,7 @@
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_pdf.pdf
 
 read_csv(here("data/NLSY97_clean.csv")) %>%
-  
+  filter(total_time_incarcerated>0)%>%
   # summarize arrests by race and gender
   group_by(race, gender) %>%
   summarize(total_time_incarcerated = mean(total_time_incarcerated)) %>%
